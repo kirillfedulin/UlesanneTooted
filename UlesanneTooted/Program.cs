@@ -1,13 +1,21 @@
-namespace UlesanneTooted
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Tooded_EFCore;
+
+internal static class Program
 {
-    class Program
+    [STAThread]
+    static void Main()
     {
-        [STAThread]
-        static void Main()
+        ApplicationConfiguration.Initialize();
+
+        Kaustad.Loo();
+
+        using (var db = new ToodedContext())
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form2());
+            db.Database.Migrate();
         }
+
+        Application.Run(new Form2()); // osas 5 asendatakse FormMain-iga
     }
 }

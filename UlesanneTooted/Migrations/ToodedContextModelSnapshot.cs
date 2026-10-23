@@ -3,25 +3,25 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using UlesanneTooted;
+using Tooded_EFCore;
 
 #nullable disable
 
-namespace UlesanneTooted.Migrations
+namespace Tooded_EFCore.Migrations
 {
     [DbContext(typeof(ToodedContext))]
     partial class ToodedContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
-#pragma warning disable 612, 618
+            #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("UlesanneTooted.Kategooria", b =>
+            modelBuilder.Entity("Tooded_EFCore.Kategooria", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,15 +34,31 @@ namespace UlesanneTooted.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Kirjeldus")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Kategooriatabel", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Kategooria_nimetus = "Joogid"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Kategooria_nimetus = "Puu- ja köögiviljad"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Kategooria_nimetus = "Maiustused"
+                        });
                 });
 
-            modelBuilder.Entity("UlesanneTooted.Toode", b =>
+            modelBuilder.Entity("Tooded_EFCore.Toode", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -50,8 +66,9 @@ namespace UlesanneTooted.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<float>("Hind")
-                        .HasColumnType("real");
+                    b.Property<decimal>("Hind")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<int>("KategooriaId")
                         .HasColumnType("int");
@@ -60,7 +77,6 @@ namespace UlesanneTooted.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Pilt")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Toodenimetus")
@@ -74,9 +90,9 @@ namespace UlesanneTooted.Migrations
                     b.ToTable("Toodetabel", (string)null);
                 });
 
-            modelBuilder.Entity("UlesanneTooted.Toode", b =>
+            modelBuilder.Entity("Tooded_EFCore.Toode", b =>
                 {
-                    b.HasOne("UlesanneTooted.Kategooria", "Kategooria")
+                    b.HasOne("Tooded_EFCore.Kategooria", "Kategooria")
                         .WithMany("Tooded")
                         .HasForeignKey("KategooriaId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -85,7 +101,7 @@ namespace UlesanneTooted.Migrations
                     b.Navigation("Kategooria");
                 });
 
-            modelBuilder.Entity("UlesanneTooted.Kategooria", b =>
+            modelBuilder.Entity("Tooded_EFCore.Kategooria", b =>
                 {
                     b.Navigation("Tooded");
                 });

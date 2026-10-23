@@ -1,19 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
-using UlesanneTooted;
+﻿namespace Tooded_EFCore;
 
+// Osa 3 (pood) tehakse hiljem. Praegu on see tühi vorm, et projekt kompileeruks.
 public partial class Form3 : Form
 {
-    private readonly ToodedContext _db;
-
     public Form3()
     {
         InitializeComponent();
-        _db = new ToodedContext();
-        LaeKategooriadJaPildid();
+        Text = "Pood";
     }
 }

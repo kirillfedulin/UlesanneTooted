@@ -1,4 +1,4 @@
-﻿namespace UlesanneTooted
+﻿namespace Tooded_EFCore
 {
     partial class Form1
     {

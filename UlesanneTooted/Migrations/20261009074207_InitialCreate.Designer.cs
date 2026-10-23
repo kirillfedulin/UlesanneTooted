@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using UlesanneTooted;
+using Tooded_EFCore;
 
 #nullable disable
 
-namespace UlesanneTooted.Migrations
+namespace Tooded_EFCore.Migrations
 {
     [DbContext(typeof(ToodedContext))]
     [Migration("20261009074207_InitialCreate")]
@@ -24,7 +24,7 @@ namespace UlesanneTooted.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("UlesanneTooted.Kategooria", b =>
+            modelBuilder.Entity("Tooded_EFCore.Kategooria", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace UlesanneTooted.Migrations
                     b.ToTable("Kategooriatabel", (string)null);
                 });
 
-            modelBuilder.Entity("UlesanneTooted.Toode", b =>
+            modelBuilder.Entity("Tooded_EFCore.Toode", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -77,9 +77,9 @@ namespace UlesanneTooted.Migrations
                     b.ToTable("Toodetabel", (string)null);
                 });
 
-            modelBuilder.Entity("UlesanneTooted.Toode", b =>
+            modelBuilder.Entity("Tooded_EFCore.Toode", b =>
                 {
-                    b.HasOne("UlesanneTooted.Kategooria", "Kategooria")
+                    b.HasOne("Tooded_EFCore.Kategooria", "Kategooria")
                         .WithMany("Tooded")
                         .HasForeignKey("KategooriaId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -88,7 +88,7 @@ namespace UlesanneTooted.Migrations
                     b.Navigation("Kategooria");
                 });
 
-            modelBuilder.Entity("UlesanneTooted.Kategooria", b =>
+            modelBuilder.Entity("Tooded_EFCore.Kategooria", b =>
                 {
                     b.Navigation("Tooded");
                 });
