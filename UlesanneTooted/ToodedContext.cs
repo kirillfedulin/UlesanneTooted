@@ -6,6 +6,7 @@ public class ToodedContext : DbContext
 {
     public DbSet<Toode> Toodetabel => Set<Toode>();
     public DbSet<Kategooria> Kategooriatabel => Set<Kategooria>();
+    public DbSet<Kasutaja> Kasutajad => Set<Kasutaja>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

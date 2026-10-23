@@ -21,6 +21,9 @@ public partial class Form2 : Form
         LooLiides();
         LaeKategooriad();
         LaeTooted();
+
+        if (!AktiivneKasutaja.OnAdmin)
+            btnLisa.Enabled = btnUuenda.Enabled = btnKustuta.Enabled = btnValiPilt.Enabled = false;
     }
 
     // ---------- Kasutajaliides ----------
