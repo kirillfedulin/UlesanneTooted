@@ -17,6 +17,7 @@ public partial class FormMain : Form
         Controls.AddRange(new Control[] { btnTooted, btnPood, btnArve });
 
         btnTooted.Enabled = AktiivneKasutaja.OnAdmin;
+        btnArve.Enabled = !AktiivneKasutaja.OnAdmin; // admin ostukorvi ei kasuta
         Text = $"Peamenüü – {AktiivneKasutaja.Nimi}";
     }
 
