@@ -8,8 +8,8 @@ namespace Tooded_EFCore;
 public partial class ArveForm : Form
 {
     // ===== SIIA KIRJUTA OMA ANDMED =====
-    private const string Saatja = "sinu.konto@gmail.com";          // Gmail, millelt kiri saadetakse
-    private const string RakenduseParool = "xxxx xxxx xxxx xxxx";  // Google'i rakenduse parool (16 märki)
+    private const string Saatja = "";          // Gmail, millelt kiri saadetakse
+    private const string RakenduseParool = "";  // Google'i rakenduse parool (16 märki)
     private const string VaikeSaaja = "";                          // e-post, kuhu arve saadetakse (võib jätta tühjaks)
     // ===================================
 
